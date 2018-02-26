@@ -1,11 +1,70 @@
 spring:
   application:
     name: micro-message
+  profiles:
+    active: dev
   cloud:
     config:
+      fail-fast: true
       discovery:
-         service-id: micro-config-server
-         enabled: true
-      label: master  # git 分支
-      name: ${spring.application.name} # 配置文件前缀
-      profile: dev # dev
+        service-id: micro-config
+        enabled: true
+      profile: ${spring.profiles.active}
+      label: master
+# 默认为开发环境
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/hexiaoyun128/micro-dev-config.git
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
+      defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
+server:
+  port: 8803
+
+# 测试环境
+---
+spring:
+  profiles: test
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/hexiaoyun128/micro-test-config.git
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
+      defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
+server:
+  port: 8803
+
+# 生产环境(docker部署,端口均为:8080)
+---
+spring:
+  profiles: prod
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/hexiaoyun128/micro-prod-config.git
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
+      defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
+server:
+  port: 8080

@@ -7,7 +7,7 @@ spring:
     config:
       fail-fast: true
       discovery:
-        service-id: micro-config-server
+        service-id: micro-config
         enabled: true
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
@@ -16,5 +16,5 @@ server:
   port: 8702
 eureka:
   client:
-    service-url:
+     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
