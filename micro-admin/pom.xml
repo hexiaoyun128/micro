@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>micro</artifactId>
+        <groupId>com.hechihan.micro</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>micro-admin</artifactId>
+    <packaging>pom</packaging>
+    <properties>
+        <spring.boot.admin.starter.server.version>1.5.7</spring.boot.admin.starter.server.version>
+        <spring.boot.admin.starter.client.version>1.5.7</spring.boot.admin.starter.client.version>
+        <spring.boot.admin.server.ui.version>1.5.7</spring.boot.admin.server.ui.version>
+        <spring.boot.admin.server.ui.hystrix.version>1.5.7</spring.boot.admin.server.ui.hystrix.version>
+        <spring.boot.admin.server.ui.turbine.version>1.5.7</spring.boot.admin.server.ui.turbine.version>
+        <spring.boot.admin.server.ui.activiti.version>1.5.7</spring.boot.admin.server.ui.activiti.version>
+        <spring.boot.admin.server.ui.login.version>1.5.7</spring.boot.admin.server.ui.login.version>
+    </properties>
+    <modules>
+        <module>micro-monitor</module>
+        <module>micro-zipkin-elk</module>
+        <module>micro-cachecloud</module>
+    </modules>
+
+
+</project>

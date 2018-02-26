@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hechihan.micro.sale.mapper.SaleOrderMapper">
+  <resultMap id="BaseResultMap" type="com.hechihan.micro.apps.sale.entity.SaleOrder">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="CHAR" property="name" />
+    <result column="customer_name" jdbcType="CHAR" property="customerName" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="company_name" jdbcType="CHAR" property="companyName" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="warehouse_name" jdbcType="CHAR" property="warehouseName" />
+    <result column="warehouse_id" jdbcType="INTEGER" property="warehouseId" />
+    <result column="shipping_address" jdbcType="CHAR" property="shippingAddress" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="amount_total" jdbcType="DECIMAL" property="amountTotal" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_uid" jdbcType="INTEGER" property="createUid" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_uid" jdbcType="INTEGER" property="updateUid" />
+    <result column="remarks" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+</mapper>

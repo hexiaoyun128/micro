@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: micro-search
+  cloud:
+    config:
+      discovery:
+         service-id: micro-config-server
+         enabled: true
+      label: master  # git 分支
+      name: ${spring.application.name} # 配置文件前缀
+      profile: dev # dev

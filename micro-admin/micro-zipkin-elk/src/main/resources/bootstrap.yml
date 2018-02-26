@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: micro-zipkin-elk
+  profiles:
+    active: dev
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        service-id: micro-config-server
+        enabled: true
+      profile: ${spring.profiles.active}
+      label: ${spring.profiles.active}
+server:
+  port: 8702
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hechihan.micro</groupId>
+    <artifactId>micro</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>1.5.9.RELEASE</version>
+    </parent>
+    <modules>
+        <module>micro-auth</module>
+        <module>micro-common</module>
+        <module>micro-config</module>
+        <module>micro-discovery</module>
+        <module>micro-gate</module>
+        <module>micro-admin</module>
+        <module>micro-apps</module>
+    </modules>
+    <properties>
+        <source.version>1.8</source.version>
+        <target.version>1.8</target.version>
+        <springframework.version>4.3.13.RELEASE</springframework.version>
+        <lombok.version>1.16.20</lombok.version>
+        <data.elasticsearch.version>3.0.3.RELEASE</data.elasticsearch.version>
+        <swagger.version>2.8.0</swagger.version>
+        <swagger.ui.version>2.8.0</swagger.ui.version>
+        <commons.lang.version>3.3.2</commons.lang.version>
+        <commons.io.version>2.5</commons.io.version>
+        <commons.configuration.version>1.10</commons.configuration.version>
+        <mybatis.pagehelper.version>5.1.2</mybatis.pagehelper.version>
+        <mybatis.mapper.version>3.4.0</mybatis.mapper.version>
+        <mybatis.generator.version>1.3.6</mybatis.generator.version>
+        <mybatis.version>1.2.3</mybatis.version>
+        <mysql.connector.version>5.1.44</mysql.connector.version>
+        <alibaba.druid.version>1.1.6</alibaba.druid.version>
+        <spring.boot.pagehelper.version>1.2.3</spring.boot.pagehelper.version>
+        <validation.version>1.5.10.RELEASE</validation.version>
+        <spring.statemachine.core.version>1.2.8.RELEASE</spring.statemachine.core.version>
+        <docker.image.prefix>micro</docker.image.prefix>
+        <docker.plugin.version>0.4.13</docker.plugin.version>
+        <druid.spring.boot.starter.version>1.1.7</druid.spring.boot.starter.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Edgware.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 使用aliyun镜像 -->
+   <!-- <repositories>
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>-->
+</project>

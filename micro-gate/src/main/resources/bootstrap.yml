@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: micro-gate
+  cloud:
+    config:
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: micro-config-server

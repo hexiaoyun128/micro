@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hechihan.micro.apps.upms.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.hechihan.micro.apps.upms.entity.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="CHAR" property="username" />
+    <result column="alias" jdbcType="CHAR" property="alias" />
+    <result column="email" jdbcType="CHAR" property="email" />
+    <result column="password" jdbcType="CHAR" property="password" />
+    <result column="active" jdbcType="BIT" property="active" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_uid" jdbcType="INTEGER" property="createUid" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_uid" jdbcType="INTEGER" property="updateUid" />
+  </resultMap>
+</mapper>

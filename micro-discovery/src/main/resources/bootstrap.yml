@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: micro-discovery
+eureka:
+  client:
+    fetch-registry: false # 发现注册中心的过程
+    register-with-eureka: false
+server:
+  port: 8812
+security:
+  basic:
+    enabled: true # 启用身份认证
+  user:
+    name: cloudy # 定义用户名
+    password: cloudy # 定义密码
