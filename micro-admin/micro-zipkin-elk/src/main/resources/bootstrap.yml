@@ -9,6 +9,7 @@ spring:
       discovery:
         service-id: micro-config-server
         enabled: true
+      name: ${spring.application.name}
       profile: ${spring.profiles.active}
       label: ${spring.profiles.active}
 server:

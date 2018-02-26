@@ -1,7 +1,8 @@
 # 微服务
     ├─micro-admin           # 端口:     说明:图形化管理模块
-    │  ├─micro-monitor      # 端口:8701 说明:监控模块
-    │  └─micro-zipkin-elk   # 端口:8702 说明:zipkin监控模块
+    │  ├─micro-cache-cloud  # 端口:8700 说明:缓存管理、统一监控
+    │  ├─micro-monitor      # 端口:8701 说明:服务状态监控、turbine 
+    │  └─micro-zipkin-elk   # 端口:8702 说明:zipkin、ELK监控
     ├─micro-apps            # 端口:     说明:微服务App(具体业务)
     │  ├─micro-upms         # 端口:8801 说明:权限服务(帐号，菜单，组织等)
     │  ├─micro-customer     # 端口:8802 说明:客户服务
