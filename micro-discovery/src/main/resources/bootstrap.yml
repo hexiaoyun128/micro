@@ -1,12 +1,53 @@
 spring:
   application:
     name: micro-discovery
+  profiles:
+    active: dev
+
+# 默认为开发环境
+---
+spring:
+  profiles: dev
+server:
+  port: 8812
 eureka:
   client:
     fetch-registry: false # 发现注册中心的过程
     register-with-eureka: false
+security:
+  basic:
+    enabled: true # 启用身份认证
+  user:
+    name: cloudy # 定义用户名
+    password: cloudy # 定义密码
+
+# 测试环境
+---
+spring:
+  profiles: test
 server:
   port: 8812
+eureka:
+  client:
+    fetch-registry: false # 发现注册中心的过程
+    register-with-eureka: false
+security:
+  basic:
+    enabled: true # 启用身份认证
+  user:
+    name: cloudy # 定义用户名
+    password: cloudy # 定义密码
+
+# 生产环境(docker部署,端口均为:8080)
+---
+spring:
+  profiles: prod
+server:
+  port: 8080
+eureka:
+  client:
+    fetch-registry: false # 发现注册中心的过程
+    register-with-eureka: false
 security:
   basic:
     enabled: true # 启用身份认证

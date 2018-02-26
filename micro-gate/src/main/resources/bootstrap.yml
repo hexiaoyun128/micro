@@ -65,6 +65,6 @@ eureka:
     prefer-ip-address: true
   client:
      service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
-      defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
+      defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8080}/eureka/
 server:
   port: 8080
