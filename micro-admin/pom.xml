@@ -23,7 +23,6 @@
     <modules>
         <module>micro-monitor</module>
         <module>micro-zipkin-elk</module>
-        <module>micro-cache-cloud</module>
     </modules>
 
 
