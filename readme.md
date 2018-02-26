@@ -1,18 +1,5 @@
 # 微服务
-
-## UI界面
-* [UI界面地址](https://github.com/hexiaoyun128/micro-ui)
-* 介绍
-    
-    基于[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
-    
-## 配置文件
-分别在不同的git仓库中，管理上开发测试运维分别控制不同的配置
-
-* [开发环境配置地址](https://github.com/hexiaoyun128/micro-dev-config)
-* [测试环境配置地址](https://github.com/hexiaoyun128/micro-test-config)
-* [生产环境配置地址](https://github.com/hexiaoyun128/micro-prod-config)
-
+## 服务结构
 
     ├─micro-admin           # 端口:     说明:图形化管理模块
     │  ├─micro-cache-cloud  # 端口:8700 说明:缓存管理、统一监控
@@ -33,3 +20,17 @@
     ├─micro-config          # 端口:8811 说明:配置服务
     ├─micro-discovery       # 端口:8812 说明:服务注册发现
     └─micro-gate            # 端口:8813 说明:网关服务
+## UI界面
+* [UI界面地址](https://github.com/hexiaoyun128/micro-ui)
+* 介绍
+    
+    基于[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+    
+## 配置文件
+分别在不同的git仓库中，管理上开发测试运维分别控制不同的配置
+
+* [开发环境配置地址](https://github.com/hexiaoyun128/micro-dev-config)
+* [测试环境配置地址](https://github.com/hexiaoyun128/micro-test-config)
+* [生产环境配置地址](https://github.com/hexiaoyun128/micro-prod-config)
+
+
