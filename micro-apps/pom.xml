@@ -79,7 +79,7 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.ui.version}</version>
         </dependency>
-        <!--数据库驱动-->
+        <!--数据库连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>

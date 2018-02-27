@@ -16,6 +16,10 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper</artifactId>
             <version>${mybatis.mapper.version}</version>
@@ -30,7 +34,12 @@
             <artifactId>spring-beans</artifactId>
             <version>${springframework.version}</version>
         </dependency>
-
+        <!--数据库连接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${alibaba.druid.version}</version>
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>

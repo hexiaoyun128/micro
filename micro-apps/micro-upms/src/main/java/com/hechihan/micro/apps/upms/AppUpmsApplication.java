@@ -18,7 +18,9 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @EnableEurekaClient
 @MapperScan("com.hechihan.micro.apps.upms.mapper")
-@ComponentScan(basePackages={"com.hechihan.micro.apps.upms","com.hechihan.micro.common.bean"} )
+@ComponentScan(basePackages={"com.hechihan.micro.apps.upms",
+        "com.hechihan.micro.common.bean",
+        "com.hechihan.micro.common.druidbean"})
 @EnableTransactionManagement
 @EnableFeignClients
 public class AppUpmsApplication {

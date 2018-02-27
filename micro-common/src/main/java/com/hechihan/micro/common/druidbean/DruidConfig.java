@@ -5,7 +5,7 @@
  * @project: micro
  */
 
-package com.hechihan.micro.apps.upms.config;
+package com.hechihan.micro.common.druidbean;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -83,14 +83,20 @@ public class DruidConfig {
     @Value("${spring.datasource.logSlowSql:false}")
     private String logSlowSql;
 
+    @Value("${spring.datasource.druidLoginUsername:druid}")
+    private String druidLoginUsername;
+    @Value("${spring.datasource.druidLoginPassword:druid}")
+    private String druidLoginPassword;
+
     @Bean
     public ServletRegistrationBean druidServlet() {
         ServletRegistrationBean reg = new ServletRegistrationBean();
         reg.setServlet(new StatViewServlet());
         reg.addUrlMappings("/druid/*");
-        reg.addInitParameter("loginUsername", username);
-        reg.addInitParameter("loginPassword", password);
+        reg.addInitParameter("loginUsername", druidLoginUsername);
+        reg.addInitParameter("loginPassword", druidLoginPassword);
         reg.addInitParameter("logSlowSql", logSlowSql);
+        reg.addInitParameter("resetEnable","false");
         return reg;
     }
 
