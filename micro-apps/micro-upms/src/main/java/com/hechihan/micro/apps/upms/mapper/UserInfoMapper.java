@@ -6,7 +6,6 @@
  */
 package com.hechihan.micro.apps.upms.mapper;
 
-import com.hechihan.micro.apps.upms.entity.UserInfo;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface UserInfoMapper extends Mapper<UserInfo> {

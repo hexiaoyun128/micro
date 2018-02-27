@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/2/27 17:01:03                           */
+/* Created on:     2018/2/27 17:36:11                           */
 /*==============================================================*/
 
 
@@ -21,6 +21,10 @@ drop table if exists position;
 drop table if exists role;
 
 drop table if exists role_action;
+
+drop table if exists role_model;
+
+drop table if exists table_entity;
 
 drop table if exists user;
 
@@ -233,6 +237,47 @@ create table role_action
 );
 
 alter table role_action comment '角色_操作';
+
+/*==============================================================*/
+/* Table: table_entity                                          */
+/*==============================================================*/
+create table table_entity
+(
+   id                   int not null auto_increment comment '主键',
+   name                 char(50) comment '实体名称',
+   package_path         char(200) comment '包路径',
+   remark               text comment '备注',
+   create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
+   create_uid           int comment '创建者',
+   update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+   update_uid           int comment '更新者',
+   primary key (id)
+);
+
+alter table table_entity comment '主要针对数据库的表';
+
+/*==============================================================*/
+/* Table: role_model                                            */
+/*==============================================================*/
+create table role_model
+(
+   entity_id            int comment '实体',
+   role_id              int comment '角色',
+   create_ok            bool default 1 comment '增加',
+   delete_ok            bool default 1 comment '删除',
+   update_ok            bool default 1 comment '修改',
+   read_ok              bool default 1 comment '查询',
+   create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
+   create_uid           int comment '创建者',
+   update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+   update_uid           int comment '更新者',
+   constraint FK_Reference_22 foreign key (role_id)
+      references role (id) on delete restrict on update restrict,
+   constraint FK_Reference_23 foreign key (entity_id)
+      references table_entity (id) on delete restrict on update restrict
+);
+
+alter table role_model comment '角色可操作的实体';
 
 /*==============================================================*/
 /* Table: user                                                  */
