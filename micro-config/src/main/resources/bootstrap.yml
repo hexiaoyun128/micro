@@ -3,17 +3,26 @@ spring:
     name: micro-config
   profiles:
     active: dev
+management:
+  security:
+    enabled: false
 
 # 默认为开发环境
 ---
 spring:
+  rabbitmq:
+    username: guest
+    password: guest
+    addresses: localhost:5672
   profiles: dev
   cloud:
     config:
       server:
         git:
           uri: https://github.com/hexiaoyun128/micro-dev-config.git
-#          clone-on-start: true #config启动时克隆git仓库
+    bus:
+      trace:
+        enabled: true # 开启cloud bus的跟踪
 eureka:
   instance:
     prefer-ip-address: true
@@ -34,6 +43,9 @@ spring:
       server:
         git:
           uri: https://github.com/hexiaoyun128/micro-dev-config.git
+    bus:
+      trace:
+        enabled: true # 开启cloud bus的跟踪
 eureka:
   instance:
     prefer-ip-address: true
@@ -54,6 +66,9 @@ spring:
       server:
         git:
           uri: https://github.com/hexiaoyun128/micro-prod-config.git
+    bus:
+      trace:
+        enabled: true # 开启cloud bus的跟踪
 eureka:
   instance:
     prefer-ip-address: true
