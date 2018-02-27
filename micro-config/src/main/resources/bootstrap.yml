@@ -13,6 +13,7 @@ spring:
       server:
         git:
           uri: https://github.com/hexiaoyun128/micro-dev-config.git
+#          clone-on-start: true #config启动时克隆git仓库
 eureka:
   instance:
     prefer-ip-address: true

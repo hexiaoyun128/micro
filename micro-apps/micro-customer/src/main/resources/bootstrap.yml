@@ -1,3 +1,64 @@
+server:
+  port: 8806
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/micro-sale?useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: root
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    filters: stat,wall,log4j
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    maxPoolPreparedStatementPerConnectionSize: 20
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    logSlowSql: true
+
+  rabbitmq:
+    username: guest
+    password: guest
+    addresses: localhost:5672
+
+mybatis:
+  type-aliases-package: com.hechihan.micro.apps.sale.mapper
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    #全局缓存
+    cache-enabled: true
+    # 延迟加载
+    lazy-loading-enabled: true
+    # 允许 JDBC 支持自动生成主键
+    use-generated-keys: true
+
+
+logging:
+  level:
+    com.hechihan.micro.user.mapper: debug
+flyway:
+  enabled: true
+  url: ${spring.datasource.url}
+  user: ${spring.datasource.username}
+  password: ${spring.datasource.password}
+  check-location: true
+  locations: classpath:db/migration
+  validate-on-migrate: true
+  clean-on-validation-error: true
+  target: 1.0
+  baseline-on-migrate: true
+  baseline-version: 1.0
+baseline-description: base
 spring:
   application:
     name: micro-customer
@@ -26,10 +87,8 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 20
   client:
-     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
+    service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
-server:
-  port: 8802
 
 # 测试环境
 ---
@@ -46,10 +105,8 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 20
   client:
-     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
+    service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
-server:
-  port: 8802
 
 # 生产环境(docker部署,端口均为:8080)
 ---
@@ -64,7 +121,5 @@ eureka:
   instance:
     prefer-ip-address: true
   client:
-     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
+    service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8080}/eureka/
-server:
-  port: 8080

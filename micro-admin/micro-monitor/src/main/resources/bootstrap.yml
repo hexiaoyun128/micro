@@ -1,3 +1,5 @@
+server:
+  port: 8701
 spring:
   application:
     name: micro-monitor
@@ -28,8 +30,7 @@ eureka:
   client:
      service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
-server:
-  port: 8701
+
 
 # 测试环境
 ---
@@ -48,8 +49,6 @@ eureka:
   client:
      service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
-server:
-  port: 8701
 
 # 生产环境(docker部署,端口均为:8080)
 ---
@@ -66,5 +65,3 @@ eureka:
   client:
      service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8080}/eureka/
-server:
-  port: 8080

@@ -1,3 +1,5 @@
+server:
+  port: 8807
 spring:
   application:
     name: micro-search
@@ -26,10 +28,8 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 20
   client:
-     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
+    service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
-server:
-  port: 8807
 
 # 测试环境
 ---
@@ -46,10 +46,9 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 20
   client:
-     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
+    service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8812}/eureka/
-server:
-  port: 8807
+
 
 # 生产环境(docker部署,端口均为:8080)
 ---
@@ -64,7 +63,5 @@ eureka:
   instance:
     prefer-ip-address: true
   client:
-     service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
+    service-url: # 服务发现信息由环境变量指定，故放在此处(若放到git配置中报错)
       defaultZone: http://cloudy:cloudy@${EUREKA_HOST:localhost}:${EUREKA_PORT:8080}/eureka/
-server:
-  port: 8080
