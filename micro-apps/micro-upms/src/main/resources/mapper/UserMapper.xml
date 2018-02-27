@@ -15,5 +15,17 @@
     <result column="create_uid" jdbcType="INTEGER" property="createUid" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="update_uid" jdbcType="INTEGER" property="updateUid" />
+    <result column="is_company" jdbcType="BIT" property="isCompany" />
+    <result column="is_supplier" jdbcType="BIT" property="isSupplier" />
+    <result column="is_customer" jdbcType="BIT" property="isCustomer" />
+    <result column="company_supper" jdbcType="BIT" property="companySupper" />
+    <result column="system_supper" jdbcType="BIT" property="systemSupper" />
+    <result column="tel_phone" jdbcType="CHAR" property="telPhone" />
+    <result column="mobile_phone" jdbcType="CHAR" property="mobilePhone" />
+    <result column="qq" jdbcType="CHAR" property="qq" />
+    <result column="wechat" jdbcType="CHAR" property="wechat" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="department_id" jdbcType="INTEGER" property="departmentId" />
+    <result column="posistion_id" jdbcType="INTEGER" property="posistionId" />
   </resultMap>
 </mapper>

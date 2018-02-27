@@ -3,23 +3,19 @@ package com.hechihan.micro.apps.upms.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-public class Position {
+@Table(name = "user_group")
+public class UserGroup {
     /**
-     * 主键
+     * 用户
      */
-    @Id
-    private Integer id;
+    @Column(name = "user_id")
+    private Integer userId;
 
     /**
-     * 职位名称
+     * 用户组
      */
-    private String name;
-
-    /**
-     * 部门
-     */
-    @Column(name = "department_id")
-    private Integer departmentId;
+    @Column(name = "group_id")
+    private Integer groupId;
 
     /**
      * 创建时间
@@ -46,62 +42,39 @@ public class Position {
     private Integer updateUid;
 
     /**
-     * 职位说明
-     */
-    private String description;
-
-    /**
-     * 获取主键
+     * 获取用户
      *
-     * @return id - 主键
+     * @return user_id - 用户
      */
-    public Integer getId() {
-        return id;
+    public Integer getUserId() {
+        return userId;
     }
 
     /**
-     * 设置主键
+     * 设置用户
      *
-     * @param id 主键
+     * @param userId 用户
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     /**
-     * 获取职位名称
+     * 获取用户组
      *
-     * @return name - 职位名称
+     * @return group_id - 用户组
      */
-    public String getName() {
-        return name;
+    public Integer getGroupId() {
+        return groupId;
     }
 
     /**
-     * 设置职位名称
+     * 设置用户组
      *
-     * @param name 职位名称
+     * @param groupId 用户组
      */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 获取部门
-     *
-     * @return department_id - 部门
-     */
-    public Integer getDepartmentId() {
-        return departmentId;
-    }
-
-    /**
-     * 设置部门
-     *
-     * @param departmentId 部门
-     */
-    public void setDepartmentId(Integer departmentId) {
-        this.departmentId = departmentId;
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 
     /**
@@ -174,23 +147,5 @@ public class Position {
      */
     public void setUpdateUid(Integer updateUid) {
         this.updateUid = updateUid;
-    }
-
-    /**
-     * 获取职位说明
-     *
-     * @return description - 职位说明
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * 设置职位说明
-     *
-     * @param description 职位说明
-     */
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

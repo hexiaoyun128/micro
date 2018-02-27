@@ -3,7 +3,7 @@ package com.hechihan.micro.apps.upms.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-public class Company {
+public class Role {
     /**
      * 主键
      */
@@ -11,35 +11,9 @@ public class Company {
     private Integer id;
 
     /**
-     * 公司名称
+     * 角色名
      */
     private String name;
-
-    /**
-     * 母公司
-     */
-    @Column(name = "parent_id")
-    private Integer parentId;
-
-    /**
-     * 省份
-     */
-    private String province;
-
-    /**
-     * 城市
-     */
-    private String city;
-
-    /**
-     * 区县
-     */
-    private String district;
-
-    /**
-     * 街道
-     */
-    private String street;
 
     /**
      * 创建时间
@@ -84,111 +58,21 @@ public class Company {
     }
 
     /**
-     * 获取公司名称
+     * 获取角色名
      *
-     * @return name - 公司名称
+     * @return name - 角色名
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 设置公司名称
+     * 设置角色名
      *
-     * @param name 公司名称
+     * @param name 角色名
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     * 获取母公司
-     *
-     * @return parent_id - 母公司
-     */
-    public Integer getParentId() {
-        return parentId;
-    }
-
-    /**
-     * 设置母公司
-     *
-     * @param parentId 母公司
-     */
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
-
-    /**
-     * 获取省份
-     *
-     * @return province - 省份
-     */
-    public String getProvince() {
-        return province;
-    }
-
-    /**
-     * 设置省份
-     *
-     * @param province 省份
-     */
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    /**
-     * 获取城市
-     *
-     * @return city - 城市
-     */
-    public String getCity() {
-        return city;
-    }
-
-    /**
-     * 设置城市
-     *
-     * @param city 城市
-     */
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    /**
-     * 获取区县
-     *
-     * @return district - 区县
-     */
-    public String getDistrict() {
-        return district;
-    }
-
-    /**
-     * 设置区县
-     *
-     * @param district 区县
-     */
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    /**
-     * 获取街道
-     *
-     * @return street - 街道
-     */
-    public String getStreet() {
-        return street;
-    }
-
-    /**
-     * 设置街道
-     *
-     * @param street 街道
-     */
-    public void setStreet(String street) {
-        this.street = street;
     }
 
     /**

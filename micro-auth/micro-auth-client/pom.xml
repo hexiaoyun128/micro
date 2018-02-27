@@ -3,19 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>micro</artifactId>
+        <artifactId>micro-auth</artifactId>
         <groupId>com.hechihan.micro</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>micro-auth</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>micro-auth-common</module>
-        <module>micro-auth-client</module>
-        <module>micro-auth-server</module>
-    </modules>
+    <artifactId>micro-auth-client</artifactId>
 
 
 </project>

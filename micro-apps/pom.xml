@@ -21,6 +21,7 @@
         <module>micro-search</module>
         <module>micro-upms</module>
         <module>micro-customer</module>
+        <module>micro-pay</module>
 
     </modules>
     <dependencies>

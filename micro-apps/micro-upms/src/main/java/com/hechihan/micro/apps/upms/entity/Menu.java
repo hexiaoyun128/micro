@@ -3,7 +3,7 @@ package com.hechihan.micro.apps.upms.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-public class Company {
+public class Menu {
     /**
      * 主键
      */
@@ -11,35 +11,45 @@ public class Company {
     private Integer id;
 
     /**
-     * 公司名称
-     */
-    private String name;
-
-    /**
-     * 母公司
+     * 父菜单
      */
     @Column(name = "parent_id")
     private Integer parentId;
 
     /**
-     * 省份
+     * 菜单名称
      */
-    private String province;
+    private String name;
 
     /**
-     * 城市
+     * 菜单路径
      */
-    private String city;
+    private String path;
 
     /**
-     * 区县
+     * web体现为class
      */
-    private String district;
+    private String clazz;
 
     /**
-     * 街道
+     * 排列序号
      */
-    private String street;
+    private Integer sequence;
+
+    /**
+     * 类型
+     */
+    private String type;
+
+    /**
+     * 有效
+     */
+    private Boolean active;
+
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 创建时间
@@ -84,111 +94,147 @@ public class Company {
     }
 
     /**
-     * 获取公司名称
+     * 获取父菜单
      *
-     * @return name - 公司名称
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 设置公司名称
-     *
-     * @param name 公司名称
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 获取母公司
-     *
-     * @return parent_id - 母公司
+     * @return parent_id - 父菜单
      */
     public Integer getParentId() {
         return parentId;
     }
 
     /**
-     * 设置母公司
+     * 设置父菜单
      *
-     * @param parentId 母公司
+     * @param parentId 父菜单
      */
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 
     /**
-     * 获取省份
+     * 获取菜单名称
      *
-     * @return province - 省份
+     * @return name - 菜单名称
      */
-    public String getProvince() {
-        return province;
+    public String getName() {
+        return name;
     }
 
     /**
-     * 设置省份
+     * 设置菜单名称
      *
-     * @param province 省份
+     * @param name 菜单名称
      */
-    public void setProvince(String province) {
-        this.province = province;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
-     * 获取城市
+     * 获取菜单路径
      *
-     * @return city - 城市
+     * @return path - 菜单路径
      */
-    public String getCity() {
-        return city;
+    public String getPath() {
+        return path;
     }
 
     /**
-     * 设置城市
+     * 设置菜单路径
      *
-     * @param city 城市
+     * @param path 菜单路径
      */
-    public void setCity(String city) {
-        this.city = city;
+    public void setPath(String path) {
+        this.path = path;
     }
 
     /**
-     * 获取区县
+     * 获取web体现为class
      *
-     * @return district - 区县
+     * @return clazz - web体现为class
      */
-    public String getDistrict() {
-        return district;
+    public String getClazz() {
+        return clazz;
     }
 
     /**
-     * 设置区县
+     * 设置web体现为class
      *
-     * @param district 区县
+     * @param clazz web体现为class
      */
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setClazz(String clazz) {
+        this.clazz = clazz;
     }
 
     /**
-     * 获取街道
+     * 获取排列序号
      *
-     * @return street - 街道
+     * @return sequence - 排列序号
      */
-    public String getStreet() {
-        return street;
+    public Integer getSequence() {
+        return sequence;
     }
 
     /**
-     * 设置街道
+     * 设置排列序号
      *
-     * @param street 街道
+     * @param sequence 排列序号
      */
-    public void setStreet(String street) {
-        this.street = street;
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
+
+    /**
+     * 获取类型
+     *
+     * @return type - 类型
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * 设置类型
+     *
+     * @param type 类型
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    /**
+     * 获取有效
+     *
+     * @return active - 有效
+     */
+    public Boolean getActive() {
+        return active;
+    }
+
+    /**
+     * 设置有效
+     *
+     * @param active 有效
+     */
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    /**
+     * 获取备注
+     *
+     * @return remark - 备注
+     */
+    public String getRemark() {
+        return remark;
+    }
+
+    /**
+     * 设置备注
+     *
+     * @param remark 备注
+     */
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     /**

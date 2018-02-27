@@ -3,23 +3,18 @@ package com.hechihan.micro.apps.upms.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-public class Position {
+@Table(name = "group_role")
+public class GroupRole {
+    /**
+     * 角色
+     */
+    @Column(name = "role_id")
+    private Integer roleId;
+
     /**
      * 主键
      */
-    @Id
     private Integer id;
-
-    /**
-     * 职位名称
-     */
-    private String name;
-
-    /**
-     * 部门
-     */
-    @Column(name = "department_id")
-    private Integer departmentId;
 
     /**
      * 创建时间
@@ -46,9 +41,22 @@ public class Position {
     private Integer updateUid;
 
     /**
-     * 职位说明
+     * 获取角色
+     *
+     * @return role_id - 角色
      */
-    private String description;
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    /**
+     * 设置角色
+     *
+     * @param roleId 角色
+     */
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
 
     /**
      * 获取主键
@@ -66,42 +74,6 @@ public class Position {
      */
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    /**
-     * 获取职位名称
-     *
-     * @return name - 职位名称
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 设置职位名称
-     *
-     * @param name 职位名称
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * 获取部门
-     *
-     * @return department_id - 部门
-     */
-    public Integer getDepartmentId() {
-        return departmentId;
-    }
-
-    /**
-     * 设置部门
-     *
-     * @param departmentId 部门
-     */
-    public void setDepartmentId(Integer departmentId) {
-        this.departmentId = departmentId;
     }
 
     /**
@@ -174,23 +146,5 @@ public class Position {
      */
     public void setUpdateUid(Integer updateUid) {
         this.updateUid = updateUid;
-    }
-
-    /**
-     * 获取职位说明
-     *
-     * @return description - 职位说明
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * 设置职位说明
-     *
-     * @param description 职位说明
-     */
-    public void setDescription(String description) {
-        this.description = description;
     }
 }
