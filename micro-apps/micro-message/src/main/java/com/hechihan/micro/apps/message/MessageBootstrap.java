@@ -5,7 +5,7 @@
  * @project: micro
  */
 
-package com.hechihan.micro.message;
+package com.hechihan.micro.apps.message;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

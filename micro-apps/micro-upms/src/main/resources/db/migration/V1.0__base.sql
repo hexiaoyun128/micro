@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/2/27 17:36:11                           */
+/* Created on:     2018/2/28 11:14:23                           */
 /*==============================================================*/
 
 
@@ -21,6 +21,8 @@ drop table if exists position;
 drop table if exists role;
 
 drop table if exists role_action;
+
+drop table if exists role_menu;
 
 drop table if exists role_model;
 
@@ -102,9 +104,9 @@ create table company
 alter table company comment '公司';
 
 /*==============================================================*/
-/* Index: name_index                                            */
+/* Index: name                                                  */
 /*==============================================================*/
-create unique index name_index on company
+create unique index name on company
 (
    name
 );
@@ -133,9 +135,9 @@ create table department
 alter table department comment '部门';
 
 /*==============================================================*/
-/* Index: name_index                                            */
+/* Index: name                                                  */
 /*==============================================================*/
-create unique index name_index on department
+create unique index name on department
 (
    name
 );
@@ -212,9 +214,9 @@ create table position
 alter table position comment '职位';
 
 /*==============================================================*/
-/* Index: name_index                                            */
+/* Index: name                                                  */
 /*==============================================================*/
-create unique index name_index on position
+create unique index name on position
 (
    name
 );
@@ -237,6 +239,25 @@ create table role_action
 );
 
 alter table role_action comment '角色_操作';
+
+/*==============================================================*/
+/* Table: role_menu                                             */
+/*==============================================================*/
+create table role_menu
+(
+   role_id              int comment '角色',
+   menu_id              int comment '菜单',
+   create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
+   create_uid           int comment '创建者',
+   update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+   update_uid           int comment '更新者',
+   constraint FK_Reference_24 foreign key (role_id)
+      references role (id) on delete restrict on update restrict,
+   constraint FK_Reference_25 foreign key (menu_id)
+      references menu (id) on delete restrict on update restrict
+);
+
+alter table role_menu comment '角色可以展示的菜单';
 
 /*==============================================================*/
 /* Table: table_entity                                          */
@@ -318,17 +339,17 @@ create table user
 alter table user comment '系统用户';
 
 /*==============================================================*/
-/* Index: username_index                                        */
+/* Index: username                                              */
 /*==============================================================*/
-create unique index username_index on user
+create unique index username on user
 (
    username
 );
 
 /*==============================================================*/
-/* Index: email_index                                           */
+/* Index: email                                                 */
 /*==============================================================*/
-create unique index email_index on user
+create unique index email on user
 (
    email
 );
@@ -357,8 +378,8 @@ alter table user_group comment '用户_用户组';
 /*==============================================================*/
 create table user_role
 (
-   role_id              int comment '角色',
    user_id              int comment '用户',
+   role_id              int comment '角色',
    create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
    create_uid           int comment '创建者',
    update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',

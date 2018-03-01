@@ -1,4 +1,4 @@
-package com.hechihan.micro.message.config;
+package com.hechihan.micro.apps.message.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;

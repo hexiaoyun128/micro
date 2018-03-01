@@ -30,7 +30,7 @@ public class BaseController<Biz extends BaseBiz,Entity> {
     @Autowired
     protected Biz baseBiz;
 
-    @RequestMapping(value = "",method = RequestMethod.POST)
+    @PostMapping(value = "")
     @ResponseBody
     @ApiOperation(value="创建")
     public ObjectRestResponse<Entity> add( @RequestBody Entity entity){
@@ -38,21 +38,21 @@ public class BaseController<Biz extends BaseBiz,Entity> {
         return new ObjectRestResponse<Entity>().rel(true).data(entity);
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    @GetMapping(value = "{id}")
     @ResponseBody
     @ApiOperation(value="获取详情")
     public ObjectRestResponse<Entity> get(@PathVariable int id){
         return new ObjectRestResponse<Entity>().rel(true).data(baseBiz.selectById(id));
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
+    @PutMapping(value = "/{id}")
     @ResponseBody
     @ApiOperation(value="修改")
     public ObjectRestResponse<Entity> update(@RequestBody Entity entity){
         baseBiz.updateSelectiveById(entity);
         return new ObjectRestResponse<Entity>().rel(true).data(entity);
     }
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/{id}")
     @ResponseBody
     @ApiOperation(value="删除")
     public ObjectRestResponse<Entity> remove(@PathVariable int id){
@@ -60,13 +60,13 @@ public class BaseController<Biz extends BaseBiz,Entity> {
         return new ObjectRestResponse<Entity>();
     }
 
-    @RequestMapping(value = "/all",method = RequestMethod.GET)
+    @GetMapping(value = "/all")
     @ResponseBody
     @ApiOperation(value="获取所有记录")
     public List<Entity> all(){
         return baseBiz.selectListAll();
     }
-    @RequestMapping(value = "/page",method = RequestMethod.GET)
+    @GetMapping(value = "/page")
     @ResponseBody
     @ApiOperation(value="分页", notes="分页参数:页码(page),每页数量(limit)")
     public TableResultResponse<Entity> list(@RequestParam Map<String, Object> params){

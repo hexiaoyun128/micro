@@ -5,7 +5,7 @@
  * @project: micro
  */
 
-package com.hechihan.micro.message.biz;
+package com.hechihan.micro.apps.message.biz;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;

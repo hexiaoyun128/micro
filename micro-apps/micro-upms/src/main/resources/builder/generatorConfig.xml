@@ -36,6 +36,7 @@
         <table tableName="position" domainObjectName="Position"/>
         <table tableName="role" domainObjectName="Role"/>
         <table tableName="role_action" domainObjectName="RoleAction"/>
+        <table tableName="role_menu" domainObjectName="RoleMenu"/>
         <table tableName="user" domainObjectName="User"/>
         <table tableName="user_group" domainObjectName="UserGroup"/>
         <table tableName="user_role" domainObjectName="UserRole"/>

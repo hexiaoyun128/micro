@@ -5,7 +5,7 @@
  * @project: micro
  */
 
-package com.hechihan.micro.message.biz;
+package com.hechihan.micro.apps.message.biz;
 
 import com.hechihan.micro.common.amqp.MicroEmail;
 import com.hechihan.micro.common.amqp.MicroMessage;

@@ -1,10 +1,9 @@
-package com.hechihan.micro.message.listener;
+package com.hechihan.micro.apps.message.listener;
 
 import com.aliyuncs.exceptions.ClientException;
-import com.hechihan.micro.common.amqp.MicroEmail;
+import com.hechihan.micro.apps.message.biz.EmailBiz;
+import com.hechihan.micro.apps.message.biz.SmsBiz;
 import com.hechihan.micro.common.amqp.MicroMessage;
-import com.hechihan.micro.message.biz.EmailBiz;
-import com.hechihan.micro.message.biz.SmsBiz;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;

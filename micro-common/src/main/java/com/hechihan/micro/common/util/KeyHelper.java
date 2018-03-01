@@ -74,7 +74,4 @@ public class KeyHelper {
 
 
     }
-    public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
-        generateKey("F:\\javaWork\\cloudy\\micro-serveice\\micro-auth\\src\\main\\resources\\jwt\\pub.key","F:\\javaWork\\cloudy\\micro-serveice\\micro-auth\\src\\main\\resources\\jwt\\pri.key","123");
-    }
 }
