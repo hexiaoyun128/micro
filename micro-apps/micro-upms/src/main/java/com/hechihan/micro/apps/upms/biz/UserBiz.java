@@ -10,6 +10,7 @@ package com.hechihan.micro.apps.upms.biz;
 import com.hechihan.micro.apps.upms.entity.User;
 import com.hechihan.micro.apps.upms.mapper.UserMapper;
 import com.hechihan.micro.common.biz.BaseBiz;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserBiz extends BaseBiz<UserMapper,User> {
     @Override
     public void insertSelective(User entity) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        entity.setPassword(bCryptPasswordEncoder.encode(entity.getPassword()));
         super.insertSelective(entity);
     }
 }

@@ -7,8 +7,11 @@
 
 package com.hechihan.micro.gate.filter;
 
+import com.hechihan.micro.gate.fegin.ClientAuthFegin;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.ZuulFilterResult;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.core.Ordered;
 
@@ -16,12 +19,22 @@ public class AccessFilter extends ZuulFilter {
 
 
 
-    @Override
-    public ZuulFilterResult runFilter() {
-        return super.runFilter();
-    }
+    @Value("${zuul.prefix}")
+    private String zuulPrefix;
+    @Value("${jwt.ignore-url}")
+    private String jwtIgnoreUrl;
+    @Value("${jwt.token-header}")
+    private String jwtTokenHeader;
 
+    @Value("${client.id}")
+    private String clientId;
+    @Value("${client.secret}")
+    private String clientSecret;
+    @Value("${client.token-header}")
+    private String clientTokenHeader;
 
+    @Autowired
+    private ClientAuthFegin clientAuthFegin;
 
     @Override
     public String filterType() {
@@ -41,5 +54,13 @@ public class AccessFilter extends ZuulFilter {
     @Override
     public Object run() {
         return null;
+    }
+    private boolean isIgnorePath(String path) {
+        for (String url : jwtIgnoreUrl.split(",")) {
+            if (path.substring(zuulPrefix.length()).startsWith(url)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

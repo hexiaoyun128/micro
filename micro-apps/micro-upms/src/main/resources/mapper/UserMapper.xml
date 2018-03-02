@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hechihan.micro.apps.upms.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.hechihan.micro.apps.upms.entity.User">
+  <resultMap id="BaseResultMap" type="com.hechihan.micro.apps.upms.vo.UserVO">
     <!--
       WARNING - @mbg.generated
     -->
@@ -24,8 +24,12 @@
     <result column="mobile_phone" jdbcType="CHAR" property="mobilePhone" />
     <result column="qq" jdbcType="CHAR" property="qq" />
     <result column="wechat" jdbcType="CHAR" property="wechat" />
-    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <!--<result column="company_id" jdbcType="INTEGER" property="companyId" />-->
     <result column="department_id" jdbcType="INTEGER" property="departmentId" />
     <result column="posistion_id" jdbcType="INTEGER" property="posistionId" />
+    <association property="company" javaType="com.hechihan.micro.apps.upms.vo.CompanyVO">
+      <id column="id" property="company_id"/>
+      <result column="name" property="name"/>
+    </association>
   </resultMap>
 </mapper>
