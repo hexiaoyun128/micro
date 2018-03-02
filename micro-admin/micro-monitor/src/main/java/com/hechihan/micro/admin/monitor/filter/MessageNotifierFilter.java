@@ -8,14 +8,12 @@
 package com.hechihan.micro.admin.monitor.filter;
 
 import com.hechihan.micro.admin.monitor.config.MessagesReceiver;
-import com.hechihan.micro.common.constants.MqQueueConstant;
 import de.codecentric.boot.admin.event.ClientApplicationEvent;
 import de.codecentric.boot.admin.event.ClientApplicationStatusChangedEvent;
 import de.codecentric.boot.admin.notify.AbstractStatusChangeNotifier;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
 
@@ -65,12 +63,12 @@ public class MessageNotifierFilter extends AbstractStatusChangeNotifier {
         }
     }
     public void MobileNotifier(String note){
-        rabbitTemplate.convertAndSend(MqQueueConstant.SERVICE_STATUS_CHANGE,
+        rabbitTemplate.convertAndSend("SERVICE_STATUS_CHANGE",
                 messagesReceiver.getMobiles(),note );
 
     }
     public void EmailNotifier(String note){
-        rabbitTemplate.convertAndSend(MqQueueConstant.SERVICE_STATUS_CHANGE,
+        rabbitTemplate.convertAndSend("SERVICE_STATUS_CHANGE",
                 messagesReceiver.getEmails(),note );
     }
 }

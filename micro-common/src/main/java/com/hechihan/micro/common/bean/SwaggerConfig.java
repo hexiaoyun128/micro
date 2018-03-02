@@ -1,4 +1,4 @@
-package com.hechihan.micro.common.bean.config;
+package com.hechihan.micro.common.bean;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;

@@ -5,7 +5,7 @@
  * @project: micro
  */
 
-package com.hechihan.micro.common.druidbean;
+package com.hechihan.micro.common.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;

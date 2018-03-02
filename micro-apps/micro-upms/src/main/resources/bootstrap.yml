@@ -63,6 +63,7 @@ mybatis:
     # 允许 JDBC 支持自动生成主键
     use-generated-keys: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
 eureka:
   instance:
     prefer-ip-address: true

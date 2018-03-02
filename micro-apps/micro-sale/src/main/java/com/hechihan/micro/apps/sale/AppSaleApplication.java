@@ -20,7 +20,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan("com.hechihan.micro.apps.sale.mapper")
 @ComponentScan(basePackages={"com.hechihan.micro.apps.sale",
         "com.hechihan.micro.common.bean",
-        "com.hechihan.micro.common.druidbean"})
+        "com.hechihan.micro.common.config"})
 @EnableTransactionManagement
 @EnableFeignClients
 public class AppSaleApplication {
