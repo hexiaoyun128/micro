@@ -27,7 +27,7 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}"
                              type="XMLMAPPER"/>
 
-        <table tableName="action" domainObjectName="Action"/>
+        <table tableName="operation" domainObjectName="Operation"/>
         <table tableName="company" domainObjectName="Company"/>
         <table tableName="department" domainObjectName="Department"/>
         <table tableName="group_role" domainObjectName="GroupRole"/>

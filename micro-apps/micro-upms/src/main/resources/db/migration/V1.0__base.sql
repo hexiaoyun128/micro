@@ -1,10 +1,8 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/2/28 11:14:23                           */
+/* Created on:     2018/3/5 17:09:39                            */
 /*==============================================================*/
 
-
-drop table if exists action;
 
 drop table if exists company;
 
@@ -16,15 +14,17 @@ drop table if exists groups;
 
 drop table if exists menu;
 
+drop table if exists operation;
+
 drop table if exists position;
 
 drop table if exists role;
 
-drop table if exists role_action;
-
 drop table if exists role_menu;
 
 drop table if exists role_model;
+
+drop table if exists role_operation;
 
 drop table if exists table_entity;
 
@@ -33,52 +33,6 @@ drop table if exists user;
 drop table if exists user_group;
 
 drop table if exists user_role;
-
-/*==============================================================*/
-/* Table: menu                                                  */
-/*==============================================================*/
-create table menu
-(
-   id                   int not null auto_increment comment '主键',
-   parent_id            int comment '父菜单',
-   name                 char(50) comment '菜单名称',
-   path                 char(10) comment '菜单路径',
-   clazz                char(20) comment 'web体现为class',
-   sequence             int comment '排列序号',
-   type                 char(20) comment '类型',
-   active               bool default 1 comment '有效',
-   remark               char(50) comment '备注',
-   create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
-   create_uid           int comment '创建者',
-   update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-   update_uid           int comment '更新者',
-   primary key (id),
-   constraint FK_Reference_16 foreign key (parent_id)
-      references menu (id) on delete restrict on update restrict
-);
-
-alter table menu comment '菜单';
-
-/*==============================================================*/
-/* Table: action                                                */
-/*==============================================================*/
-create table action
-(
-   id                   int not null comment '主键',
-   code                 char(10) comment '操作编号',
-   name                 char(50) comment '操作名称',
-   menu_id              int comment '所属菜单',
-   active               bool comment '有效',
-   create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
-   create_uid           int comment '创建者',
-   update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-   update_uid           int comment '更新者',
-   primary key (id),
-   constraint FK_Reference_17 foreign key (menu_id)
-      references menu (id) on delete restrict on update restrict
-);
-
-alter table action comment '可以进行的操作';
 
 /*==============================================================*/
 /* Table: company                                               */
@@ -194,6 +148,52 @@ create table group_role
 alter table group_role comment '用户组_角色';
 
 /*==============================================================*/
+/* Table: menu                                                  */
+/*==============================================================*/
+create table menu
+(
+   id                   int not null auto_increment comment '主键',
+   parent_id            int comment '父菜单',
+   name                 char(50) comment '菜单名称',
+   path                 char(10) comment '菜单路径',
+   clazz                char(20) comment 'web体现为class',
+   sequence             int comment '排列序号',
+   type                 char(20) comment '类型',
+   active               bool default 1 comment '有效',
+   remark               char(50) comment '备注',
+   create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
+   create_uid           int comment '创建者',
+   update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+   update_uid           int comment '更新者',
+   primary key (id),
+   constraint FK_Reference_16 foreign key (parent_id)
+      references menu (id) on delete restrict on update restrict
+);
+
+alter table menu comment '菜单';
+
+/*==============================================================*/
+/* Table: operation                                             */
+/*==============================================================*/
+create table operation
+(
+   id                   int not null comment '主键',
+   code                 char(10) comment '操作编号',
+   name                 char(50) comment '操作名称',
+   menu_id              int comment '所属菜单',
+   active               bool comment '有效',
+   create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
+   create_uid           int comment '创建者',
+   update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+   update_uid           int comment '更新者',
+   primary key (id),
+   constraint FK_Reference_17 foreign key (menu_id)
+      references menu (id) on delete restrict on update restrict
+);
+
+alter table operation comment '可以进行的操作';
+
+/*==============================================================*/
 /* Table: position                                              */
 /*==============================================================*/
 create table position
@@ -220,25 +220,6 @@ create unique index name on position
 (
    name
 );
-
-/*==============================================================*/
-/* Table: role_action                                           */
-/*==============================================================*/
-create table role_action
-(
-   role_id              int comment '角色',
-   action_id            int comment '操作',
-   create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
-   create_uid           int comment '创建者',
-   update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
-   update_uid           int comment '更新者',
-   constraint FK_Reference_18 foreign key (role_id)
-      references role (id) on delete restrict on update restrict,
-   constraint FK_Reference_19 foreign key (action_id)
-      references action (id) on delete restrict on update restrict
-);
-
-alter table role_action comment '角色_操作';
 
 /*==============================================================*/
 /* Table: role_menu                                             */
@@ -301,11 +282,30 @@ create table role_model
 alter table role_model comment '角色可操作的实体';
 
 /*==============================================================*/
+/* Table: role_operation                                        */
+/*==============================================================*/
+create table role_operation
+(
+   role_id              int comment '角色',
+   operation_id         int comment '操作',
+   create_time          timestamp default CURRENT_TIMESTAMP comment '创建时间',
+   create_uid           int comment '创建者',
+   update_time          timestamp default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间',
+   update_uid           int comment '更新者',
+   constraint FK_Reference_18 foreign key (role_id)
+      references role (id) on delete restrict on update restrict,
+   constraint FK_Reference_19 foreign key (operation_id)
+      references operation (id) on delete restrict on update restrict
+);
+
+alter table role_operation comment '角色_操作';
+
+/*==============================================================*/
 /* Table: user                                                  */
 /*==============================================================*/
 create table user
 (
-   id                   int not null comment '主键',
+   id                   int not null auto_increment comment '主键',
    username             char(50) comment '用户名',
    alias                char(50) comment '别名',
    email                char(50) comment '邮箱',
@@ -326,13 +326,13 @@ create table user
    wechat               char(20) comment '微信',
    company_id           int comment '所属公司',
    department_id        int comment '所属部门',
-   posistion_id         int comment '职位',
+   position_id          int comment '职位',
    primary key (id),
    constraint FK_Reference_5 foreign key (company_id)
       references company (id) on delete restrict on update restrict,
    constraint FK_Reference_6 foreign key (department_id)
       references department (id) on delete restrict on update restrict,
-   constraint FK_Reference_9 foreign key (posistion_id)
+   constraint FK_Reference_9 foreign key (position_id)
       references position (id) on delete restrict on update restrict
 );
 

@@ -16,5 +16,15 @@
     <result column="create_uid" jdbcType="INTEGER" property="createUid" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="update_uid" jdbcType="INTEGER" property="updateUid" />
+    <association property="parent"
+                 column="parent_id"
+                 select="selectCompanyById">
+    </association>
   </resultMap>
+
+
+  <select id="selectCompanyById" resultType="com.hechihan.micro.apps.upms.entity.Company" parameterType="java.lang.Integer">
+
+    SELECT  * FROM company WHERE id =#{id}
+</select>
 </mapper>

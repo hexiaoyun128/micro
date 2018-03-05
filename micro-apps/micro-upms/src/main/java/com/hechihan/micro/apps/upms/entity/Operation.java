@@ -3,7 +3,7 @@ package com.hechihan.micro.apps.upms.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-public class Action {
+public class Operation {
     /**
      * 主键
      */

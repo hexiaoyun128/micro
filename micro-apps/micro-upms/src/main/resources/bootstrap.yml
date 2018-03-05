@@ -61,8 +61,8 @@ mybatis:
     # 延迟加载
     lazy-loading-enabled: false
     # 允许 JDBC 支持自动生成主键
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     use-generated-keys: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 eureka:
   instance:
     prefer-ip-address: true

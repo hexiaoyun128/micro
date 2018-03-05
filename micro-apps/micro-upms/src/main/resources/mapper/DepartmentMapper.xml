@@ -15,6 +15,4 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="update_uid" jdbcType="INTEGER" property="updateUid" />
   </resultMap>
-  <cache />
-
 </mapper>

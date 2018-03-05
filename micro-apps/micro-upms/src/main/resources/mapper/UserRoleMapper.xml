@@ -5,8 +5,8 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="create_uid" jdbcType="INTEGER" property="createUid" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
